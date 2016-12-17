@@ -1,0 +1,30 @@
+{
+  "name": "bedrock-letsencrypt",
+  "version": "0.2.0-0",
+  "description": "A Bedrock module that automates the HTTPS certificate setup process",
+  "main": "./lib",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalbazaar/bedrock-letsencrypt.git"
+  },
+  "author": {
+    "name": "Digital Bazaar, Inc.",
+    "email": "support@digitalbazaar.com",
+    "url": "http://digitalbazaar.com"
+  },
+  "bugs": {
+    "url": "https://github.com/digitalbazaar/bedrock-letsencrypt/issues"
+  },
+  "homepage": "https://github.com/digitalbazaar/bedrock-letsencrypt",
+  "dependencies": {
+    "async": "^2.1.4",
+    "letsencrypt": "^2.1.8"
+  },
+  "peerDependencies": {
+    "bedrock": "^1.4.1",
+    "bedrock-server": "^2.2.1"
+  }
+}
