@@ -24,7 +24,7 @@
     "letsencrypt": "^2.1.8"
   },
   "peerDependencies": {
-    "bedrock": "^1.4.1",
-    "bedrock-server": "^2.2.1"
+    "bedrock": "^1.4.0",
+    "bedrock-server": "^2.2.0"
   }
 }
