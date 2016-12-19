@@ -7,7 +7,7 @@ updating via the ACME protocol and the Let's Encrypt Certificate Authority.
 ## Quick Examples
 
 ```
-npm install bedrock bedrock-letsencrypt
+npm install bedrock-letsencrypt bedrock bedrock-server bedrock-express
 ```
 
 Create a basic Bedrock application server:
