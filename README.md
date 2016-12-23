@@ -1,7 +1,7 @@
 # bedrock-letsencrypt
 
 A Bedrock module that automates the HTTPS certificate registration, setup,
-and renewal process. This module adds automatic TLS Certificate setup and 
+and renewal process. This module adds automatic TLS Certificate setup and
 updating via the ACME protocol and the Let's Encrypt Certificate Authority.
 
 ## Quick Examples
@@ -31,6 +31,10 @@ config.server.baseUri = 'https://' + config.server.host;
 
 config.letsencrypt.domains = ['letsencrypt-1.example.com'];
 config.letsencrypt.email = 'admin@example.com';
+config.letsencrypt.redisOptions = {
+  db: 1,
+  password: 'REDIS_PASSWORD'
+};
 
 // setup landing page
 bedrock.events.on('bedrock-express.configure.routes', function(app) {
@@ -42,31 +46,37 @@ bedrock.events.on('bedrock-express.configure.routes', function(app) {
 bedrock.start();
 ```
 
-Run the application above on any host with public access to the Web. 
-You need to ensure that at least ports 80 and 443 are available on 
-the public Internet because the Let's Encrypt servers will attempt 
+Run the application above on any host with public access to the Web.
+You need to ensure that at least ports 80 and 443 are available on
+the public Internet because the Let's Encrypt servers will attempt
 to contact your host during the certificate issurance process.
 
 ## Configuration
 
-For documentation on this module's configuration, see [config.js](./lib/config.js).
+For documentation on this module's configuration, see
+[config.js](./lib/config.js).
+
+You will need to setup a Redis server to store the accounts, keypairs, and
+certificates. More on Redis configuration options can be found
+in the
+[Redis configuration options](http://redis.js.org/#api-rediscreateclient).
 
 ## How It Works
 
-This module adds automatic TLS Certificate registration, setup, and renewal 
+This module adds automatic TLS Certificate registration, setup, and renewal
 via the ACME protocol and the Let's Encrypt Certificate Authority. When
 the application server starts up, the following process occurs:
 
-1. The server scans the config file for Let's Encrypt auto-registration 
+1. The server scans the config file for Let's Encrypt auto-registration
    domains listed in ```bedrock.config.letsencrypt.domains```.
-2. A private key is generated and a certificate request is sent to 
+2. A private key is generated and a certificate request is sent to
    the Let's Encrypt Certificate Authority (LECA).
 3. The LECA challenges the server to publish a nonce that has been
    digitally signed at a specific URL under /.well-known/acme-challenge/
 4. Once the server publishes the LECA challenge to the appropriate
    URL, the LECA provides the signed certificate, which the server
    then uses to encrypt all future HTTPs traffic.
-   
+
 Registration, setup, and renewal occurs automatically. By default,
 certificates are valid for 90 days and the server will begin attempting
 to renew the certificate after 80 days. This process is automatic

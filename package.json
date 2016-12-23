@@ -22,6 +22,7 @@
   "dependencies": {
     "async": "^2.1.4",
     "letsencrypt": "^2.1.8",
+    "le-store-redis": "^0.2.1",
     "le-challenge-sni": "^2.0.0"
   },
   "peerDependencies": {
