@@ -49,7 +49,7 @@ bedrock.start();
 Run the application above on any host with public access to the Web.
 You need to ensure that at least ports 80 and 443 are available on
 the public Internet because the Let's Encrypt servers will attempt
-to contact your host during the certificate issurance process.
+to contact your host during the certificate issuance process.
 
 ## Configuration
 
