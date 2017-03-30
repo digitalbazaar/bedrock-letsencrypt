@@ -21,9 +21,9 @@
   "homepage": "https://github.com/digitalbazaar/bedrock-letsencrypt",
   "dependencies": {
     "async": "^2.1.4",
-    "letsencrypt": "^2.1.8",
-    "le-store-redis": "^0.2.1",
-    "le-challenge-sni": "^2.0.0"
+    "greenlock": "^2.1.12",
+    "le-challenge-sni": "^2.0.0",
+    "le-store-redis": "^0.2.1"
   },
   "peerDependencies": {
     "bedrock": "^1.4.0",
