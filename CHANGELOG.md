@@ -1,5 +1,10 @@
 # bedrock-letsencrypt ChangeLog
 
+## 0.2.6 - 2017-04-04
+
+### Fixed
+- Add callback to `bedrock.configure` event listener.
+
 ## 0.2.5 - 2017-04-04
 
 ### Fixed
