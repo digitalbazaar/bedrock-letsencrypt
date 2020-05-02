@@ -4,7 +4,9 @@
   "description": "A Bedrock module that automates the HTTPS certificate setup process",
   "main": "./lib",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -23,11 +25,13 @@
     "async": "^2.1.4",
     "greenlock": "^2.1.12",
     "le-challenge-sni": "^2.0.0",
-    "le-store-redis": "^0.2.1"
+    "le-store-redis": "^0.2.1",
+    "snyk": "^1.316.2"
   },
   "peerDependencies": {
     "bedrock": "^1.4.0",
     "bedrock-server": "^2.2.0",
     "bedrock-express": "^2.0.6"
-  }
+  },
+  "snyk": true
 }
